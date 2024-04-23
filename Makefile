@@ -1,5 +1,5 @@
 all:
-	gcc -o test bfscript.c main.c 
+	gcc -o test bfscript.c jit/riscv/riscv_jit.c main.c
 
 run:
 	./test

@@ -1,8 +1,13 @@
 #include <stdint.h>
 
-typedef struct BF_state BF_state;
+typedef struct BF_state {
+    uint32_t tape_length;
+    char* tape;
+} BF_state;
 
 typedef int (*BF_func)(BF_state*);
+
+typedef long (*func_ptr)(long);
 
 typedef enum {
     EnumRuntimeError_None,
@@ -26,6 +31,9 @@ int BF_execute_string(BF_state* state, const char* string);
 // Execute a given file.
 int BF_execute_file(BF_state* state, const char* filepath);
 
+// Execute a string with the JIT compiler.
+func_ptr BF_jit_compile(BF_state* state, const char* string);
+
 // Get a cell at a given index on the tape.
 int BF_get_cell(BF_state* state, uint32_t index);
 
@@ -40,9 +48,3 @@ void BF_set_cell_array(BF_state* state, uint32_t index, char* value);
 
 // Register a c function into the tape.
 void BF_register_func(BF_func function, uint32_t index);
-
-
-
-
-/* DEBUG */
-void interpret(BF_state* state);

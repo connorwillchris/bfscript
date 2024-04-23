@@ -3,24 +3,12 @@
 
 #include "bfscript.h"
 
+/*
 typedef struct BF_state {
     uint32_t tape_length;
     char* tape;
 } BF_state;
-
-void interpret(BF_state* state) {
-    uint32_t ptr = 0;
-    ptr++;
-    state->tape[ptr] += 8;
-    while (state->tape[ptr]) {
-        ptr--;
-        state->tape[ptr] += 8;
-        ptr++;
-        state->tape[ptr]--;
-    }
-    ptr--;
-    state->tape[ptr]++;
-}
+*/
 
 static int internal_syntax_error_checking(const char* string) {
     int there_are_brackets = 0;
