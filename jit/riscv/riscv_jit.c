@@ -10,4 +10,8 @@ func_ptr BF_jit_compile(BF_state* state, const char* string) {
         MAP_PRIVATE | MAP_ANONYMOUS,
         -1, 0
     );
+
+    
+
+    return (func_ptr) memory;
 }

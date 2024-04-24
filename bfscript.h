@@ -19,6 +19,9 @@ typedef enum {
     EnumRuntimeError_CouldNotIndexCell = -1,
 } EnumRuntimeError;
 
+// Execute a string with the JIT compiler.
+func_ptr BF_jit_compile(BF_state* state, const char* string);
+
 // Open a brainfuck state with a given tape length.
 BF_state* BF_open_state(uint32_t tape_length);
 
@@ -30,9 +33,6 @@ int BF_execute_string(BF_state* state, const char* string);
 
 // Execute a given file.
 int BF_execute_file(BF_state* state, const char* filepath);
-
-// Execute a string with the JIT compiler.
-func_ptr BF_jit_compile(BF_state* state, const char* string);
 
 // Get a cell at a given index on the tape.
 int BF_get_cell(BF_state* state, uint32_t index);

@@ -29,11 +29,13 @@ unsigned instruction_lbu(char rd, char rs1, int imm12);
 unsigned instruction_lhu(char rd, char rs1, int imm12);
 
 /* S-Type instructions */
+
 unsigned instruction_sb(char rd, char rs1, int imm12);
 unsigned instruction_sh(char rd, char rs1, int imm12);
 unsigned instruction_sw(char rd, char rs1, int imm12);
 
 /* B-Type instructions */
+
 unsigned instruction_beq(char rd, char rs1, int imm12);
 unsigned instruction_bne(char rd, char rs1, int imm12);
 unsigned instruction_blt(char rd, char rs1, int imm12);
@@ -42,13 +44,16 @@ unsigned instruction_bltu(char rd, char rs1, int imm12);
 unsigned instruction_bgeu(char rd, char rs1, int imm12);
 
 /* J-Type instructions */
+
 unsigned instruction_jal(char rd, int imm20);
 
 /* etc I-Type instructions */
+
 unsigned instruction_jalr(char rd, char rs1, int imm12);
 unsigned instruction_ecall(char rd, char rs1, int imm12);
 unsigned instruction_ebreak(char rd, char rs1, int imm12);
 
 /* U-Type instructions */
+
 unsigned instruction_lui(char rd, int imm20);
 unsigned instruction_auipc(char rd, int imm20);
