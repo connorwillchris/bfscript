@@ -1,5 +1,5 @@
 all:
 	zig build
 
-run:
+run: all
 	zig build run
