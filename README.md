@@ -1,3 +1,3 @@
 # BF Script
 
-Embedded brainfuck language.
+Embedded brainfuck language. Written in Zig.
