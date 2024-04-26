@@ -1,8 +1,5 @@
 all:
-	gcc -o test bfscript.c jit/riscv/riscv_jit.c jit/riscv/riscv.c main.c
+	zig build
 
 run:
-	./test
-
-clean:
-	rm -rf test
+	zig build run
