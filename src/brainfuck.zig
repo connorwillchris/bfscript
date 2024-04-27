@@ -27,6 +27,28 @@ pub const Brainfuck = struct {
         try interpret(self, string);
     }
 
+    /// Execute a given file at `path`.
+    pub fn executeFile(self: *Brainfuck, path: []const u8) !void {
+        var gp = std.heap.GeneralPurposeAllocator(.{ .safety = true }){};
+        defer _ = gp.deinit();
+        const allocator = &gp.allocator();
+
+        var path_buffer: [fs.MAX_PATH_BYTES]u8 = undefined;
+        const abs_path = try fs.realpath(path, &path_buffer);
+
+        const file = try fs.openFileAbsolute(abs_path, .{});
+        defer file.close();
+
+        const file_size = (try file.stat()).size;
+        const file_buffer = try allocator.alloc(u8, file_size);
+        defer allocator.free(file_buffer);
+
+        try file.reader().readNoEof(file_buffer);
+
+        // interpret the file
+        try interpret(self, file_buffer);
+    }
+
     /// Get a cell at the given `index`.
     pub fn getCell(self: *Brainfuck, index: usize) !u8 {
         return try self.tape[index];

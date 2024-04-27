@@ -8,6 +8,8 @@ pub fn main() !void {
 
     //const sixty_five = ">++++++++[<++++++++>-]<+.";
     //try bf.executeString(sixty_five);
-    const hello_world = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
-    try bf.executeString(hello_world);
+    //const hello_world = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
+    //try bf.executeString(hello_world);
+
+    try bf.executeFile("./tests/helloworld.bf");
 }
