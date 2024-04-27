@@ -6,9 +6,8 @@ pub fn main() !void {
     var bf = try brainfuck.init(30_000, allocator);
     defer bf.deinit(allocator);
 
-    const sixty_five = "++++++++++.";
-
-    try bf.executeString(sixty_five);
-    //try bf.executeFile("C:\\Users\\Connor\\Dev\\bfscript\\tests\\test.bf");
-    std.debug.print("Cell {d}: {d}\n", .{ 0, try bf.getCell(0) });
+    //const sixty_five = ">++++++++[<++++++++>-]<+.";
+    //try bf.executeString(sixty_five);
+    const hello_world = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
+    try bf.executeString(hello_world);
 }
