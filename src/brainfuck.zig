@@ -3,6 +3,7 @@ const fs = std.fs;
 
 pub const BrainfuckError = error{
     UnclosedBracket,
+    IndexOutsideOfTape,
 };
 
 /// Embedded BF interface
@@ -51,7 +52,12 @@ pub const Brainfuck = struct {
 
     /// Get a cell at the given `index`.
     pub fn getCell(self: *Brainfuck, index: usize) !u8 {
-        return try self.tape[index];
+        //return try self.tape[index];
+        if (index >= self.tape.len) {
+            return BrainfuckError.IndexOutsideOfTape;
+        } else {
+            return self.tape[index];
+        }
     }
 
     /// Internal function, to check for any unclosed brackets.
